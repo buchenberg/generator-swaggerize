@@ -1,27 +1,39 @@
-'use strict';
+'use strict'
 
-var Hapi = require('hapi');
-var Swaggerize = require('swaggerize-hapi');
-var Path = require('path');
+const Glue = require('glue')
+const Path = require('path')
 
-var Server = new Hapi.Server();
-
-Server.connection({
+const manifest = {
+  server: {},
+  connections: [
+      {
     port: 8000
-});
-
-Server.register({
-    register: Swaggerize,
-    options: {
+  }
+  ],
+  registrations: [
+    {
+      plugin: 'swaggerize-hapi',
+      options: {
         api: Path.resolve('<%=apiPathRel.replace(/\\/g,'/')%>'),
         handlers: Path.resolve('<%=handlerPath.replace(/\\/g,'/')%>')<%if (security) {%>,
         security: Path.resolve('<%=securityPath.replace(/\\/g,'/')%>')<%}%>
+      }
     }
-}, function () {
-    Server.start(function () {
-        Server.plugins.swagger.setHost(Server.info.host + ':' + Server.info.port);
+  ]
+}
+
+const options = {
+  relativeTo: __dirname
+}
+
+Glue.compose(manifest, options, (err, server) => {
+  if (err) {
+    throw err
+  }
+  server.start(() => {
+       server.plugins.swagger.setHost(server.info.host + ':' + server.info.port);
         /* eslint-disable no-console */
-        console.log('App running on %s:%d', Server.info.host, Server.info.port);
+        console.log('App running on %s:%d', server.info.host, server.info.port);
         /* eslint-disable no-console */
-    });
-});
+  })
+})

@@ -12,11 +12,13 @@ const manifest = {
   ],
   registrations: [
     {
-      plugin: 'swaggerize-hapi',
-      options: {
-        api: Path.resolve('<%=apiPathRel.replace(/\\/g,'/')%>'),
-        handlers: Path.resolve('<%=handlerPath.replace(/\\/g,'/')%>')<%if (security) {%>,
-        security: Path.resolve('<%=securityPath.replace(/\\/g,'/')%>')<%}%>
+      plugin: {
+        register: 'swaggerize-hapi',
+        options: {
+          api: Path.resolve('<%=apiPathRel.replace(/\\/g,'/')%>'),
+          handlers: Path.resolve('<%=handlerPath.replace(/\\/g,'/')%>')<%if (security) {%>,
+          security: Path.resolve('<%=securityPath.replace(/\\/g,'/')%>')<%}%>
+        }
       }
     }
   ]

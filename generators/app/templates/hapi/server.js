@@ -6,9 +6,9 @@ const Path = require('path')
 const manifest = {
   server: {},
   connections: [
-      {
-    port: 8000
-  }
+    {
+      port: 8000
+    }
   ],
   registrations: [
     {

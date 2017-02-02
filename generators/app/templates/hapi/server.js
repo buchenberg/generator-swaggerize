@@ -2,6 +2,7 @@
 
 const Glue = require('glue')
 const Path = require('path')
+const debug = require('debug')('server')
 
 const manifest = {
   server: {},
@@ -11,6 +12,11 @@ const manifest = {
     }
   ],
   registrations: [
+    {
+      plugin: {
+        register: 'blipp'
+      }
+    },
     {
       plugin: {
         register: 'swaggerize-hapi',

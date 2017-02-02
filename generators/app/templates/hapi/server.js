@@ -39,9 +39,7 @@ Glue.compose(manifest, options, (err, server) => {
     throw err
   }
   server.start(() => {
-       server.plugins.swagger.setHost(server.info.host + ':' + server.info.port);
-        /* eslint-disable no-console */
-        console.log('App running on %s:%d', server.info.host, server.info.port);
-        /* eslint-disable no-console */
+    server.plugins.swagger.setHost(server.info.host + ':' + server.info.port);
+    debug('App running on %s:%d', server.info.host, server.info.port);
   })
 })

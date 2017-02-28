@@ -13,31 +13,35 @@ const manifest = {
   ],
   registrations: [
     {
-      plugin: {
-        register: 'blipp'
-      }
+      plugin: 'inert'
+    },
+    {
+      plugin: 'vision'
+    },
+    {
+      plugin: 'blipp'
     },
     {
       plugin: {
         register: 'swaggerize-hapi',
         options: {
-          api: Path.resolve('<%=apiPathRel.replace(/\\/g,'/')%>'),
+          api: Path.resolve('<%=apiPathRel.replace(/\\/g,' / ')%>'),
           docspath: '/swagger',
-          handlers: Path.resolve('<%=handlerPath.replace(/\\/g,'/')%>')<%if (security) {%>,
-          security: Path.resolve('<%=securityPath.replace(/\\/g,'/')%>')<%}%>
+          handlers: Path.resolve('<%=handlerPath.replace(/\\/g,' / ')%>') <%if (security) {%>,
+            security: Path.resolve('<%=securityPath.replace(/\\/g,' / ')%>') <%}%>
         }
-      },
-        {
-            plugin: {
-                register: 'hapi-swaggered-ui',
-                options: {
-                    swaggerEndpoint: '/billing/v1/swagger',
-                    path: '/api-doc',
-                    title: 'Figaro Mock API',
-                    swaggerOptions: {}
-                }
-            }
+    },
+    {
+      plugin: {
+        register: 'hapi-swaggered-ui',
+        options: {
+          swaggerEndpoint: '/billing/v1/swagger',
+          path: '/api-doc',
+          title: 'Figaro Mock API',
+          swaggerOptions: {}
         }
+      }
+    }
     }
   ]
 }

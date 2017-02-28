@@ -22,10 +22,22 @@ const manifest = {
         register: 'swaggerize-hapi',
         options: {
           api: Path.resolve('<%=apiPathRel.replace(/\\/g,'/')%>'),
+          docspath: '/swagger',
           handlers: Path.resolve('<%=handlerPath.replace(/\\/g,'/')%>')<%if (security) {%>,
           security: Path.resolve('<%=securityPath.replace(/\\/g,'/')%>')<%}%>
         }
-      }
+      },
+        {
+            plugin: {
+                register: 'hapi-swaggered-ui',
+                options: {
+                    swaggerEndpoint: '/billing/v1/swagger',
+                    path: '/api-doc',
+                    title: 'Figaro Mock API',
+                    swaggerOptions: {}
+                }
+            }
+        }
     }
   ]
 }

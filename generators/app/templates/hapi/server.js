@@ -28,8 +28,9 @@ const manifest = {
           api: Path.resolve('<%=apiPathRel.replace(/\\/g,' / ')%>'),
           docspath: '/swagger',
           handlers: Path.resolve('<%=handlerPath.replace(/\\/g,' / ')%>') <%if (security) {%>,
-            security: Path.resolve('<%=securityPath.replace(/\\/g,' / ')%>') <%}%>
+          security: Path.resolve('<%=securityPath.replace(/\\/g,' / ')%>') <%}%>
         }
+      }
     },
     {
       plugin: {
@@ -41,7 +42,6 @@ const manifest = {
           swaggerOptions: {}
         }
       }
-    }
     }
   ]
 }

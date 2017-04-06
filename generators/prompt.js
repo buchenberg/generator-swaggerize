@@ -19,22 +19,11 @@ module.exports = function prompt(name, generator) {
         validate: validate
     }];
 
-    var framework = 'hapi';
-    // [{
-    //     type: 'list',
-    //     name: 'framework',
-    //     message: 'Framework:',
-    //     default: generator.framework,
-    //     when: function () {
-    //         return !generator.framework;
-    //     },
-    //     choices: Frameworks.map(function (framework) {
-    //         return {
-    //             name: framework,
-    //             value: framework
-    //         };
-    //     })
-    // }];
+    var framework = [{
+        name: 'framework',
+        message: 'Framework:',
+        default: 'hapi'
+    }];
 
     var app = [
         {

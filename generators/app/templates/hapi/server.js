@@ -36,7 +36,7 @@ const manifest = {
           plugin: {
               register: 'hapi-swaggered-ui',
               options: {
-                  swaggerEndpoint: '/billing/v1/swagger',
+                  swaggerEndpoint: '/swagger',
                   path: '/api-doc',
                   title: 'Figaro Mock API',
                   swaggerOptions: {}

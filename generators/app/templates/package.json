@@ -4,18 +4,10 @@
     "version": "1.0.0",
     "author": "<%= creatorName %> <<%= email %>>",
     "contributors": [],
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/<%= githubUser %>/<%= slugAppName %>.git"
-    },
-    "bugs": "http://github.com/<%= githubUser %>/<%= slugAppName %>/issues",
     "publishConfig": {
         "registry": "https://registry.npmjs.org"
     },
-    "dependencies": {<% if (framework === 'express') {%>
-        "express": "^4.0.0",
-        "body-parser": "^1.15.0",
-        "swaggerize-express": "^4.0.0"<%}%><% if (framework === 'hapi') {%>
+    "dependencies": {
         "glue": "^4.1.0",
         "hapi": "^16.1.0",
         "hapi-swaggered-ui": "^2.6.0",
@@ -23,9 +15,7 @@
         "vision": "^4.1.1",
         "blipp": "^2.3.0",
         "debug": "^2.6.0",
-        "swaggerize-hapi": "^2.0.0-"<%}%><% if (framework === 'restify') {%>
-        "swaggerize-restify": "^2.0.0",
-        "restify": "^3.0.3"<%}%>,
+        "swaggerize-hapi": "^2.0.0-",
         "swagmock": "~0.0.2"
     },
     "devDependencies": {
@@ -38,6 +28,7 @@
         "tape": "^4"
     },
     "scripts": {
+        "start": "node server.js",
         "test": "tape 'tests/**/*.js'",
         "cover": "istanbul cover tape -- 'tests/**/*.js'",
         "lint": "eslint .",

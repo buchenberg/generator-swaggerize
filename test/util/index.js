@@ -28,7 +28,7 @@ function mockPrompt (name) {
         app : {
             appName: 'mockapp',
             creatorName: 'lorem ipsum',
-            githubUser: 'loremipsum',
+            // githubUser: 'loremipsum',
             email: 'loremipsum@awesome.com',
             framework: 'express',
             apiPath: Path.join(__dirname, '../fixture/petstore_no_security.json'),

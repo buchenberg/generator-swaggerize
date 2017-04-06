@@ -19,21 +19,22 @@ module.exports = function prompt(name, generator) {
         validate: validate
     }];
 
-    var framework = [{
-        type: 'list',
-        name: 'framework',
-        message: 'Framework:',
-        default: generator.framework,
-        when: function () {
-            return !generator.framework;
-        },
-        choices: Frameworks.map(function (framework) {
-            return {
-                name: framework,
-                value: framework
-            };
-        })
-    }];
+    var framework = 'hapi';
+    // [{
+    //     type: 'list',
+    //     name: 'framework',
+    //     message: 'Framework:',
+    //     default: generator.framework,
+    //     when: function () {
+    //         return !generator.framework;
+    //     },
+    //     choices: Frameworks.map(function (framework) {
+    //         return {
+    //             name: framework,
+    //             value: framework
+    //         };
+    //     })
+    // }];
 
     var app = [
         {
@@ -47,11 +48,11 @@ module.exports = function prompt(name, generator) {
             message: 'Your name:',
             validate: validate
         },
-        {
-            name: 'githubUser',
-            message: 'Your github user name:',
-            validate: validate
-        },
+        // {
+        //     name: 'githubUser',
+        //     message: 'Your github user name:',
+        //     validate: validate
+        // },
         {
             name: 'email',
             message: 'Your email:',

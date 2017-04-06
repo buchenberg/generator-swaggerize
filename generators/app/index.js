@@ -8,7 +8,7 @@ var Prompt = require('../prompt');
 module.exports = Generators.Base.extend({
     constructor: function () {
         Generators.Base.apply(this, arguments);
-        this.option('framework');
+        //this.option('framework');
         this.option('apiPath');
         this.option('handlerPath');
         this.option('testPath');
@@ -71,7 +71,7 @@ module.exports = Generators.Base.extend({
                 this.destinationPath()
             );
             //Package and Docs
-            ['package.json', 'README.md'].forEach(function (file) {
+            ['package.json', 'README.md', 'sample.env'].forEach(function (file) {
                 self.fs.copyTpl(
                     self.templatePath(file),
                     self.destinationPath(file),
@@ -80,7 +80,8 @@ module.exports = Generators.Base.extend({
             });
             //Server file
             this.fs.copyTpl(
-                this.templatePath(Path.join(this.framework, 'server.js')),
+                // this.templatePath(Path.join(this.framework, 'server.js')),
+                this.templatePath(Path.join('hapi', 'server.js')),
                 this.destinationPath('server.js'),
                 this
             );
@@ -100,7 +101,7 @@ module.exports = Generators.Base.extend({
                     testPath: this.testPath,
                     dataPath: this.dataPath,
                     securityPath: this.securityPath,
-                    framework: this.framework,
+                    //framework: this.framework,
                     securith: this.security
                 }
             }, {

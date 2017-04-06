@@ -19,13 +19,19 @@ const environment = {
     }
 };
 
+// const tlsEnabled = process.env.TLS_ENABLED || false;
+
+// const tls = {
+//     key: fs.readFileSync(Path.resolve(process.env.TLS_KEY_PATH || '/dev/null')),
+//     cert: fs.readFileSync(Path.resolve(process.env.TLS_CERT_PATH || '/dev/null'))
+// };
+
 const manifest = {
   server: {},
   connections: [
    {
       host: environment.api.host,
       port: environment.api.port,
-      tls: tls,
       labels: 'api',
       routes: {
           cors: {

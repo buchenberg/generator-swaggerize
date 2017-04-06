@@ -19,11 +19,11 @@ module.exports = function prompt(name, generator) {
         validate: validate
     }];
 
-    var framework = [{
-        name: 'framework',
-        message: 'Framework:',
-        default: 'hapi'
-    }];
+    // var framework = [{
+    //     name: 'framework',
+    //     message: 'Framework:',
+    //     default: 'hapi'
+    // }];
 
     var app = [
         {
@@ -37,11 +37,6 @@ module.exports = function prompt(name, generator) {
             message: 'Your name:',
             validate: validate
         },
-        // {
-        //     name: 'githubUser',
-        //     message: 'Your github user name:',
-        //     validate: validate
-        // },
         {
             name: 'email',
             message: 'Your email:',
@@ -54,13 +49,13 @@ module.exports = function prompt(name, generator) {
             return apiPath;
         },
         handler: function () {
-            return apiPath.concat(framework);
+            return apiPath.concat('hapi');
         },
         test: function () {
-            return apiPath.concat(framework);
+            return apiPath.concat('hapi');
         },
         app: function () {
-            return apiPath.concat(framework).concat(app);
+            return apiPath.concat('hapi').concat(app);
         }
     };
 

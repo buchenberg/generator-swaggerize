@@ -1,14 +1,38 @@
 'use strict'
 
-const Glue = require('glue')
-const Path = require('path')
-const debug = require('debug')('server')
+const Glue = require('glue');
+const Path = require('path');
+const debug = require('debug')('server');
+require('dotenv').config();
+
+const environment = {
+    api: {
+        host: process.env.API_HOST || 'localhost',
+        port: process.env.API_PORT || 9999
+    },
+    ui: {
+        host: process.env.UI_HOST || 'localhost',
+        port: process.env.UI_PORT || 9999
+    },
+    ws: {
+        port: process.env.WS_PORT || 9991
+    }
+};
 
 const manifest = {
   server: {},
   connections: [
-    {
-      port: 8000
+   {
+      host: environment.api.host,
+      port: environment.api.port,
+      tls: tls,
+      labels: 'api',
+      routes: {
+          cors: {
+              origin: ['*']
+          }
+      }
+
     }
   ],
   registrations: [
@@ -37,7 +61,7 @@ const manifest = {
               register: 'hapi-swaggered-ui',
               options: {
                   swaggerEndpoint: '/swagger',
-                  path: '/api-doc',
+                  path: '/swagger-ui',
                   title: 'Figaro Mock API',
                   swaggerOptions: {}
               }

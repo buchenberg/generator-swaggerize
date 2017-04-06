@@ -3,10 +3,6 @@
     "description": "",
     "version": "1.0.0",
     "author": "<%= creatorName %> <<%= email %>>",
-    "contributors": [],
-    "publishConfig": {
-        "registry": "https://registry.npmjs.org"
-    },
     "dependencies": {
         "glue": "^4.1.0",
         "hapi": "^16.1.0",
@@ -15,6 +11,7 @@
         "vision": "^4.1.1",
         "blipp": "^2.3.0",
         "debug": "^2.6.0",
+        "dotenv": "^4.0.0",
         "swaggerize-hapi": "^2.0.0-",
         "swagmock": "~0.0.2"
     },
